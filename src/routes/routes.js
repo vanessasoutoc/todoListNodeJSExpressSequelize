@@ -1,13 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const TaskCtrl = require('../controllers/task-ctrl');
-const UserCtrl = require('../controllers/user-ctrl');
 
+const TasksRoutes = require('./tasks-routes');
+const UsersRoutes = require('./users-routes');
 
-router.get('/tasks', TaskCtrl.list);
-router.post('/tasks', TaskCtrl.new);
-router.get('/users', UserCtrl.list);
-router.post('/users', UserCtrl.new);
+router.use('/tasks', TasksRoutes);
+router.use('/users', UsersRoutes);
 
 
 module.exports = router;
